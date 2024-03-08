@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:23 by mac               #+#    #+#             */
-/*   Updated: 2024/03/07 23:22:41 by mac              ###   ########.fr       */
+/*   Updated: 2024/03/08 13:58:57 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 int	main(int argc, char **argv)
 {
-	parsing(argv);
+	t_data	*data;
+	
+	argc = NULL;
+	argv = NULL;
+	data = malloc(sizeof(t_data));
+	// parsing(argv, data);
+	ft_mlx_init(data);
+	raycast(data);
 	printf("hello\n");
 	return 0;
 }

@@ -6,7 +6,14 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:33 by mac               #+#    #+#             */
-/*   Updated: 2024/03/07 23:11:34 by mac              ###   ########.fr       */
+/*   Updated: 2024/03/08 13:21:52 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
+
+void ft_mlx_init(t_data *data)
+{
+	data->mlx->mlx = mlx_init();
+	data->mlx->win = mlx_new_window(data->mlx->mlx, 1920, 1080, "cub3d");
+}
