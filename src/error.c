@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 23:11:23 by mac               #+#    #+#             */
-/*   Updated: 2024/03/09 13:51:28 by mac              ###   ########.fr       */
+/*   Created: 2024/03/08 14:50:29 by mac               #+#    #+#             */
+/*   Updated: 2024/03/08 14:51:48 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
-int	main(int argc, char **argv)
+int	error(int i)
 {
-	t_data	*data;
-	
-	if (argc)
-	{}
-	argv = NULL;
-	data = malloc(sizeof(t_data));
-	parsing(argv, data);
-	ft_mlx_init(data);
-	printf("hello\n");
-	raycast(data);
-	mlx_loop(data->mlx->mlx);
-	return 0;
+	if (i == 1)
+		perror("Error\nWrong number of arguments\n");
+	return 1;
 }

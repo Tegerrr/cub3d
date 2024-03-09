@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:04:05 by timelkon          #+#    #+#             */
-/*   Updated: 2024/03/07 16:43:45 by mac              ###   ########.fr       */
+/*   Updated: 2024/03/08 14:28:46 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char		*ft_strrchr(const char *s, int c);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 void		*ft_calloc(size_t count, size_t size);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*lib_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_strdup(const char *s1);
 void		ft_putchar_fd(char c, int fd);

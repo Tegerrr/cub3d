@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:33:15 by timelkon          #+#    #+#             */
-/*   Updated: 2024/03/07 16:43:45 by mac              ###   ########.fr       */
+/*   Updated: 2024/03/08 14:30:02 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ char	*ft_strtrim(char const *s, char const *set)
 		i++;
 	while (j > i && ft_strchr(set, s[j]))
 		j--;
-	return (ft_substr(s, i, (j - i + 1)));
+	return (lib_substr(s, i, (j - i + 1)));
 }

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:20:47 by timelkon          #+#    #+#             */
-/*   Updated: 2024/03/07 16:43:45 by mac              ###   ########.fr       */
+/*   Updated: 2024/03/08 14:30:15 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	**delai(int i, int e, char *s, char c)
 			start = i;
 			while (s[i] != c && s[i] != '\0')
 				i++;
-			split[e] = ft_substr(s, start, (i - start));
+			split[e] = lib_substr(s, start, (i - start));
 			if (split[e] == NULL)
 			{
 				ft_free (split, e);

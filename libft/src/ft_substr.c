@@ -6,13 +6,13 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:27:14 by timelkon          #+#    #+#             */
-/*   Updated: 2024/03/07 16:43:45 by mac              ###   ########.fr       */
+/*   Updated: 2024/03/08 14:29:04 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*lib_substr(char const *s, unsigned int start, size_t len)
 
 {
 	char	*st;

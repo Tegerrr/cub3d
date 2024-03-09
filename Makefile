@@ -2,11 +2,11 @@ NAME = cub3D
 SRCDIR = src
 OBJDIR = obj
 
-MLX_DIR = ./mlx
-SRCS = $(addprefix $(SRCDIR)/, main.c parcing.c init.c)
-OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
-CC = cc
 RM = rm -rf
+CC = cc
+MLX_DIR = ./mlx
+SRCS = $(addprefix $(SRCDIR)/, main.c parsing.c init.c raycast.c)
+OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 LIBFT = ./libft
 LIBFTA = $(LIBFT)/libft.a
