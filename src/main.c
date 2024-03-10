@@ -20,8 +20,12 @@ int	main(int argc, char **argv)
 	{}
 	argv = NULL;
 	data = malloc(sizeof(t_data));
+	data->mlx = malloc(sizeof(t_mlx));
+	data->map = malloc(sizeof(t_map));
+	data->player = malloc(sizeof(t_player));
+	data->texture = malloc(sizeof(t_texture));
 	parsing(argv, data);
-	ft_mlx_init(data);
+	// ft_mlx_init(data);
 	printf("hello\n");
 	raycast(data);
 	mlx_loop(data->mlx->mlx);

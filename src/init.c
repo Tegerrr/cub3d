@@ -15,5 +15,6 @@
 void ft_mlx_init(t_data *data)
 {
 	data->mlx->mlx = mlx_init();
-	data->mlx->win = mlx_new_window(data->mlx->mlx, 1920, 1080, "cub3d");
+	data->mlx->win = mlx_new_window(data->mlx->mlx, WIDTH, HEIGHT, "cub3d");
+	mlx_loop(data->mlx->mlx);
 }

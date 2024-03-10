@@ -1,4 +1,4 @@
-NAME = cub3D
+NAME = cub3d
 SRCDIR = src
 OBJDIR = obj
 
@@ -7,7 +7,7 @@ CC = cc
 MLX_DIR = ./mlx
 SRCS = $(addprefix $(SRCDIR)/, main.c parsing.c init.c raycast.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g
 LIBFT = ./libft
 LIBFTA = $(LIBFT)/libft.a
 LIBGNL = ./get_next_line
