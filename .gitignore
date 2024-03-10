@@ -1,4 +1,5 @@
 obj
-cub3D
+cub3d
 .vscode
 .DS_Store
+%.o
