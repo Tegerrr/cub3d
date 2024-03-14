@@ -9,10 +9,10 @@
 /*   Updated: 2024/03/08 14:51:48 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "cub3d.h"
 
-int	error(int i)
+void	message_error_exit(char *message)
 {
-	if (i == 1)
-		perror("Error\nWrong number of arguments\n");
-	return 1;
+	ft_putstr_fd(message, 2);
+	exit(1);
 }
