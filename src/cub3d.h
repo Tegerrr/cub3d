@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:12:16 by mac               #+#    #+#             */
-/*   Updated: 2024/03/10 23:55:05 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/06 22:01:14 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@
 
 # define WIDTH 1080
 # define HEIGHT 720
-# define NO "textures/Asset-7.xpm"
-# define SO "textures/Asset-9.xpm"
-# define WE "textures/Asset-11.xpm"
-# define EA "textures/Asset-15.xpm"
 
 typedef struct s_mlx
 {
@@ -79,6 +75,12 @@ typedef struct s_data
 	t_player	*player;
 	t_texture	*texture;
 	t_img		*image;
+	t_img		*walls_textures[4];
+	int			tex_num;
+	double		wallx;
+	int			texx;
+	int			tex_width;
+	int			tex_height;
 	double		pos_x;
 	double		pos_y;
 	double		dir_x;
@@ -99,10 +101,13 @@ typedef struct s_data
 	int			side;
 	int			step_x;
 	int			step_y;
+	double		step;
 	double		perp_wall_dist;
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
+	double		tex_pos;
+	int			tex_y;
 	double		time;		// time of current frame
 	double		old_time;	// time of previous frame
 }	t_data;
@@ -121,6 +126,9 @@ int	parsing(char **argv, t_data *data);
 void	game(t_data *data);
 
 // drawing
-void	texture_put(t_data *data);
+void	texture_put(t_data *data, int x);
+
+// utils
+int	close_game(void);
 
 #endif
