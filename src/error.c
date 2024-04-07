@@ -13,6 +13,7 @@
 
 void	message_error_exit(char *message)
 {
+	ft_putstr_fd("Error: ", 2);
 	ft_putstr_fd(message, 2);
-	exit(1);
+	exit(0);
 }
