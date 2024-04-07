@@ -11,43 +11,42 @@
 /* ************************************************************************** */
 #include "cub3d.h"
 
-int	is_map_a_cub_file(char *map_path)
+int	is_file_extension_right(char *map_path , char *extension)
 {
-	if (ft_strncmp(map_path + (ft_strlen(map_path) - 4), ".cub", 4))
-		message_error_exit("Error: map is not .cub!\n");
+	int	extension_len;
+
+	extension_len = ft_strlen(extension);
+	if (ft_strncmp(map_path + (ft_strlen(map_path)
+				- extension_len), extension, extension_len))
+	{
+		printf("%s should have extension %s\n", map_path, extension);
+		message_error_exit("map or texture has wrong file extension!\n");
+	}
 	return (0);
 }
-
-int	check_if_empty(char *big_str)
+/*
+int	check_if_empty(char **map)
 {
 	int	i;
 
-	i = 0;
-	if (!*big_str)
+	i = -1;
+	if (!map)
 		message_error_exit("map is empty!\n");
-	while (big_str[i])
-	{
-		if (big_str[i] != '\n')
+	while (map[++i])
+		if (!has_not_only_white_space(map[i]))
 			return (0);
-		i++;
-	}
-	message_error_exit("map is empty except for new lines!\n");
+	message_error_exit("map is empty!\n");
 	return (1);
 }
+*/
 
-void open_map_file(char *map_path, int *fd)
+void	open_map_file(char *map_path, int *fd)
 {
 	*fd = open(map_path, O_RDONLY);
 	if ((*fd) < 0)
-		message_error_exit("Error: couldn't open map!\n");
+		message_error_exit("couldn't open map!\n");
 }
 
-void	parse_textures_and_colors(int map_fd, t_data *data)
-{
-	//use get_next_line unil all 6 keys for texture and color are found
-	//if map's 0s and 1s start before all 6 keys are found, call message_error
-	//stop immediately after all 6 keys are found
-}
 
 void	put_2d_map_into_double_arr(int map_fd, t_data *data)
 {
@@ -68,6 +67,7 @@ void	put_2d_map_into_double_arr(int map_fd, t_data *data)
 		free(tmp2);
 	}
 	check_if_empty(big_str);
+	no_double_new_line(big_str);
 	data->map->map = ft_split(big_str, '\n');
 	free(big_str);
 }
@@ -75,12 +75,17 @@ void	put_2d_map_into_double_arr(int map_fd, t_data *data)
 
 int	parsing(char *map_path, t_data *data)
 {
-	int fd;
-	is_map_a_cub_file(map_path);
+	int	fd;
+
+	is_file_extension_right(map_path, ".cub");
 	open_map_file(map_path, &fd);
 	parse_textures_and_colors(fd, data);
+	print_texture_color_data(data);
 	put_2d_map_into_double_arr(fd, data);
-	validate_2d_map(data->map->map);
-	//does_map_have_all_textures(argv[1]);
+	check_if_map_has_right_chars(data->map->map, data);
+	check_map_walls(data->map->map);
+	printf("No gaps, BITCH!\n");
+	//print_double_char_arr(data->map->map);
+	//validate_2d_map(data->map->map);
 	return 0;
 }
