@@ -6,9 +6,10 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:30 by mac               #+#    #+#             */
-/*   Updated: 2024/03/08 14:58:17 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/07 16:38:26 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "cub3d.h"
 
 int	is_file_extension_right(char *map_path , char *extension)

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:12:16 by mac               #+#    #+#             */
-/*   Updated: 2024/04/06 22:01:14 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/07 16:47:48 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <fcntl.h>
 #include "../libft/libft.h"
+// #include "../get_next_line/get_next_line.h"
 #include "../mlx/mlx.h"
 
 # define WIDTH 1080

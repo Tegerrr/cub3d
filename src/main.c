@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:23 by mac               #+#    #+#             */
-/*   Updated: 2024/03/24 21:13:06 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/07 16:51:37 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,20 @@ int	main(int argc, char **argv)
 	
 	if (argc != 2)
 		message_error_exit("Error: wrong number of arguments!\n");
-	argv = NULL;
 	data = malloc(sizeof(t_data));
 	data->mlx = malloc(sizeof(t_mlx));
 	data->map = malloc(sizeof(t_map));
 	data->player = malloc(sizeof(t_player));
 	data->texture = malloc(sizeof(t_texture));
+	data->map->floor = malloc(sizeof(t_color));
+	data->map->ceiling = malloc(sizeof(t_color));
 
 	while (data->walls_textures[i])
 	{
 		data->walls_textures[i] = malloc(sizeof(t_img));
 		i++;
 	}
-	parsing(argv, data);
+	// parsing(argv, data);
 
 	parsing(argv[1], data);
 
