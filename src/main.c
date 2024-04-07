@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:23 by mac               #+#    #+#             */
-/*   Updated: 2024/03/10 17:08:09 by mac              ###   ########.fr       */
+/*   Updated: 2024/03/24 21:13:06 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_data	*data;
+	int i = 0;
 	
 	if (argc != 2)
 		message_error_exit("Error: wrong number of arguments!\n");
@@ -24,7 +25,16 @@ int	main(int argc, char **argv)
 	data->map = malloc(sizeof(t_map));
 	data->player = malloc(sizeof(t_player));
 	data->texture = malloc(sizeof(t_texture));
+
+	while (data->walls_textures[i])
+	{
+		data->walls_textures[i] = malloc(sizeof(t_img));
+		i++;
+	}
+	parsing(argv, data);
+
 	parsing(argv[1], data);
+
 	// ft_mlx_init(data);
 	// printf("hello\n");
 	game(data);
