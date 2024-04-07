@@ -18,11 +18,23 @@
 #include <math.h>
 #include <string.h>
 #include "../libft/libft.h"
-#include "../get_next_line/get_next_line.h"
 #include "../mlx/mlx.h"
 
 # define WIDTH 1080
 # define HEIGHT 720
+
+//parsing constants
+# define HAS_ALL_COLORS_AND_TEXTURES 63
+# define FOUND_NO 32
+# define FOUND_SO 16
+# define FOUND_WE 8
+# define FOUND_EA 4
+# define FOUND_C 2
+# define FOUND_F 1
+# define WHITE_CHARS "\t\n\x0b\x0c\r "
+# define ORIENTATION_CHARS "NSEW"
+# define VALID_MAP_CHARS " 10NSEW"
+
 
 typedef struct s_mlx
 {
@@ -65,6 +77,7 @@ typedef struct s_player
 {
 	int		x;
 	int		y;
+	int		found_flag;
 	char	orientation;
 }	t_player;
 
@@ -122,10 +135,31 @@ void	raycasting(t_data *data);
 // parsing
 int		parsing(char *map_path, t_data *data);
 void	message_error_exit(char *message);
-int		is_map_a_cub_file(char *str);
-void 	open_map_file(char *map_path, int *fd);
+int		is_file_extension_right(char *map_path, char *extension);
+void	open_map_file(char *map_path, int *fd);
 void	parse_textures_and_colors(int map_fd, t_data *data);
 void	put_2d_map_into_double_arr(int map_fd, t_data *data);
+void	print_double_char_arr(char **map);
+int		no_double_new_line(char *str);
+int		check_if_empty(char *big_str);
+int		has_not_only_white_space(char *str);
+char	*check_t_path(char *line, int *texture_counter, int found_code);
+int		find_a_texture(char *line, t_data *data, int *texture_counter);
+void	parse_textures_and_colors(int map_fd, t_data *data);
+int		has_only_white_space(char *str);
+int		check_if_elem_is_doubled(int texture_counter, int found_code);
+int		trim_double_char_arr(char ***ptr_to_double_ch_arr, char *set);
+int		check_color(char *line, int *t_counter, int found_code, t_data *data);
+int		is_color_valid(t_color c);
+int		check_color_lines(char **color_lines);
+void	print_texture_color_data(t_data *data);
+void	check_if_map_has_right_chars(char **map, t_data *data);
+void	check_map_walls(char **map);
+void	check_if_enclosed_by_walls(int x, int y, char **map);
+int		is_enclosed_north(int x, int y, char **map);
+int		is_enclosed_south(int x, int y, char **map);
+int		is_enclosed_east(int x, int y, char **map);
+int		is_enclosed_west(int x, int y, char **map);
 
 
 // game
