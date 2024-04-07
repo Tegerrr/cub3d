@@ -47,7 +47,7 @@ typedef struct s_color
 
 typedef struct s_map
 {
-	char	*map[5];
+	char	**map;
 	t_color	*ceiling;
 	t_color *floor;
 }	t_map;
@@ -113,14 +113,20 @@ typedef struct s_data
 }	t_data;
 
 // init
-void ft_mlx_init(t_data *data);
+void 	ft_mlx_init(t_data *data);
 void	no_parser_inits(t_data *data);
 
 // raycast
 void	raycasting(t_data *data);
 
 // parsing
-int	parsing(char **argv, t_data *data);
+int		parsing(char *map_path, t_data *data);
+void	message_error_exit(char *message);
+int		is_map_a_cub_file(char *str);
+void 	open_map_file(char *map_path, int *fd);
+void	parse_textures_and_colors(int map_fd, t_data *data);
+void	put_2d_map_into_double_arr(int map_fd, t_data *data);
+
 
 // game
 void	game(t_data *data);
