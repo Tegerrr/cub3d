@@ -34,6 +34,7 @@ void	check_if_map_has_right_chars(char **map, t_data *data)
 				data->player->found_flag = 1;
 				data->player->x = j;
 				data->player->y = i;
+				data->player->orientation = map[i][j];			
 			}
 		}
 	}

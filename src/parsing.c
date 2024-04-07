@@ -85,6 +85,7 @@ int	parsing(char *map_path, t_data *data)
 	put_2d_map_into_double_arr(fd, data);
 	check_if_map_has_right_chars(data->map->map, data);
 	check_map_walls(data->map->map);
+	printf("player info: x: %i, y: %i, orientation: %c\n", data->player->x, data->player->y, data->player->orientation);
 	printf("No gaps, BITCH!\n");
 	//print_double_char_arr(data->map->map);
 	//validate_2d_map(data->map->map);
