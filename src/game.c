@@ -28,6 +28,7 @@ int	updating_img(t_data *data)
 		printf("Error img_addr\n");
 		exit(0);
 	}
+	draw_floor_ceiling(data);
 	raycasting(data);
 	mlx_put_image_to_window(data->mlx->mlx, data->mlx->win, data->image->img, 0, 0);
 	mlx_destroy_image(data->mlx->mlx, data->image->img);

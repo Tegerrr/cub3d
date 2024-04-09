@@ -32,13 +32,15 @@ void	check_if_map_has_right_chars(char **map, t_data *data)
 				if (data->player->found_flag == 1)
 					message_error_exit("map has more than 1 player position\n");
 				data->player->found_flag = 1;
-				// data->player->x = j;
-				// data->player->y = i;
+				data->player->x = j;
+				data->player->y = i;
+
 				data->pos_x = (double)j;
 				data->pos_y = (double)i;
-				data->player->orientation = map[i][j];	
-				data->dir_x = 0;
-				data->dir_y = 1;
+				data->player->orientation = map[i][j];
+
+				data->dir_x = 1;
+				data->dir_y = 0;
 				data->plane_x = 0.66;
 				data->plane_y = 0;
 				// orientation(data->player->orientation);	
@@ -59,11 +61,8 @@ void	check_map_walls(char **map)
 	while (map && map[i])
 	{
 		j = 0;
-		//print_double_char_arr(map);
-		//printf("what the actuall fuck? map[i][j]: %i\n", map[i][j]);
 		while (map[i][j])
 		{
-			// printf("check_map_walls! line: %i, char pos: %i, char: %c\n", i, j, map[i][j]);
 			if (map[i][j] == '0' || ft_strchr(ORIENTATION_CHARS, map[i][j]))
 				check_if_enclosed_by_walls(j, i, map);
 			j++;

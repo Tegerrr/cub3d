@@ -81,7 +81,7 @@ void	raycasting(t_data *data)
 			// Check if ray has hit a wall
 			if (data->map->map[data->map_x][data->map_y] == '1')
 			{
-				// printf("it hit a wall\n");
+				printf("it hit a wall\n");
 				data->hit = 1;
 			}
 		}

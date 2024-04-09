@@ -32,10 +32,7 @@ int	main(int argc, char **argv)
 		data->walls_textures[i] = malloc(sizeof(t_img));
 		i++;
 	}
-	// parsing(argv, data);
-
 	parsing(argv[1], data);
-
 	// ft_mlx_init(data);
 	// printf("hello\n");
 	game(data);

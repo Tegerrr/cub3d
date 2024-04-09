@@ -168,7 +168,9 @@ int		is_enclosed_west(int x, int y, char **map);
 void	game(t_data *data);
 
 // drawing
-void	texture_put(t_data *data, int x);
+void			texture_put(t_data *data, int x);
+void 			draw_floor_ceiling(t_data *data);
+unsigned long	set_up_color(int r, int g, int b);
 
 // utils
 int	close_game(void);
