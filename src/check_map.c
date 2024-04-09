@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:42:20 by sbalasho          #+#    #+#             */
-/*   Updated: 2024/04/07 16:30:28 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/09 14:12:30 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,16 @@ void	check_if_map_has_right_chars(char **map, t_data *data)
 				if (data->player->found_flag == 1)
 					message_error_exit("map has more than 1 player position\n");
 				data->player->found_flag = 1;
-				data->player->x = j;
-				data->player->y = i;
-				data->player->orientation = map[i][j];			
+				// data->player->x = j;
+				// data->player->y = i;
+				data->pos_x = (double)j;
+				data->pos_y = (double)i;
+				data->player->orientation = map[i][j];	
+				data->dir_x = 0;
+				data->dir_y = 1;
+				data->plane_x = 0.66;
+				data->plane_y = 0;
+				// orientation(data->player->orientation);	
 			}
 		}
 	}

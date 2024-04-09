@@ -1,8 +1,9 @@
-WE	./textures/Asset-11.xpm
+NO ./textures/wall.xpm
+SO ./textures/bricks.xpm
+WE ./textures/gold.xpm
+EA ./textures/wood.xpm
+
 F   78, 43, 255	
-NO	./textures/Asset-7.xpm
-EA	./textures/Asset-15.xpm
-SO	./textures/Asset-9.xpm
 C   0,   42 ,60
  1111111111111111111111
 100000000000S00000000001
@@ -16,4 +17,4 @@ C   0,   42 ,60
         10000001
          100001
           1001
-  0       111
+           111
