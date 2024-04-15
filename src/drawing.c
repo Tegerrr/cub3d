@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 19:39:38 by mac               #+#    #+#             */
-/*   Updated: 2024/04/06 21:42:45 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 14:01:25 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	texture_put(t_data *data, int x)
 	// uint32_t buffer[HEIGHT][WIDTH];
 	
 	// calculate value of wallx (where exactly the wall was hit)
-	data->tex_num = data->map->map[data->map_x][data->map_y] - 1;
+	data->tex_num = data->map->map[data->map_y][data->map_x] - 1;
 	if (data->side == 0)
 		data->wallx = data->pos_y + data->perp_wall_dist * data->ray_dir_y;
 	else

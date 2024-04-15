@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:06:12 by mac               #+#    #+#             */
-/*   Updated: 2024/04/09 14:14:54 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 14:16:37 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	game(t_data *data)
 	no_parser_inits(data);
 	mlx_loop_hook(data->mlx->mlx, &updating_img, data);
 	mlx_hook(data->mlx->win, 17, 1L << 2, close_game, NULL);
-	
+
 	mlx_loop(data->mlx->mlx);
 }
