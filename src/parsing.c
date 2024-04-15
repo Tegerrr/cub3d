@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:30 by mac               #+#    #+#             */
-/*   Updated: 2024/04/07 16:38:26 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 14:13:11 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,46 @@ void	put_2d_map_into_double_arr(int map_fd, t_data *data)
 	check_if_empty(big_str);
 	no_double_new_line(big_str);
 	data->map->map = ft_split(big_str, '\n');
+	// for(int i = 0; data->map->map[i]; i++)
+	// {
+	// 	printf("%s\n", data->map->map[i]);
+	// }
 	free(big_str);
 }
 
+void	orient_W(t_data *data)
+{
+	data->dir_x = -1;
+	data->dir_y = 0;
+	data->plane_x = 0;
+	data->plane_y = -0.66;
+}
+
+void	orient(t_data *data)
+{
+	if (data->player->orientation == 'N')
+	{
+		data->dir_x = 0;
+		data->dir_y = -1;
+		data->plane_x = -0.66;
+		data->plane_y = 0;
+	}
+	if (data->player->orientation == 'S')
+	{
+		data->dir_x = 0;
+		data->dir_y = 1;
+		data->plane_x = 0.66;
+		data->plane_y = 0;
+	}
+	if (data->player->orientation == 'E')
+	{
+		data->dir_x = 1;
+		data->dir_y = 0;
+		data->plane_x = 0;
+		data->plane_y = 0.66;
+	}
+	orient_W(data);
+}
 
 int	parsing(char *map_path, t_data *data)
 {
@@ -85,8 +122,8 @@ int	parsing(char *map_path, t_data *data)
 	put_2d_map_into_double_arr(fd, data);
 	check_if_map_has_right_chars(data->map->map, data);
 	check_map_walls(data->map->map);
-
 	print_double_char_arr(data->map->map);
+	orient(data);
 	printf("player info: x: %i, y: %i, orientation: %c\n", data->player->x, data->player->y, data->player->orientation);
 	printf("No gaps, BITCH!\n");
 	//print_double_char_arr(data->map->map);

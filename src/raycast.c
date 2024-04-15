@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:36 by mac               #+#    #+#             */
-/*   Updated: 2024/04/06 21:43:33 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 14:16:07 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,8 @@ void	raycasting(t_data *data)
 				data->side = 1;
 			}
 			// Check if ray has hit a wall
-			if (data->map->map[data->map_x][data->map_y] == '1')
+			if (data->map->map[data->map_y][data->map_x] == '1')
 			{
-				printf("it hit a wall\n");
 				data->hit = 1;
 			}
 		}
