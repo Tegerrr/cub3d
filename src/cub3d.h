@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:12:16 by mac               #+#    #+#             */
-/*   Updated: 2024/04/07 16:47:48 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 18:55:02 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,11 +125,13 @@ typedef struct s_data
 	int			tex_y;
 	double		time;		// time of current frame
 	double		old_time;	// time of previous frame
+	double		move_speed;
+	double		rot_speed;
 }	t_data;
 
 // init
 void 	ft_mlx_init(t_data *data);
-void	no_parser_inits(t_data *data);
+void	inits(t_data *data);
 
 // raycast
 void	raycasting(t_data *data);

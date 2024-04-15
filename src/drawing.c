@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 19:39:38 by mac               #+#    #+#             */
-/*   Updated: 2024/04/15 14:01:25 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 17:40:44 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	set_texture (t_data *data)
 		return (2);
 	else if (!data->side && data->ray_dir_x < 0)
 		return (3);
-	printf("side == %d\nray_dir_x == %f\nray_dir_y == %f\n", data->side, data->ray_dir_x, data->ray_dir_y);
+	// printf("side == %d\nray_dir_x == %f\nray_dir_y == %f\n", data->side, data->ray_dir_x, data->ray_dir_y);
 	return (-1);
 }
 
@@ -74,6 +74,7 @@ void	texture_put(t_data *data, int x)
 	y = data->draw_start;
 	// printf("draw_end == %d\n", y);
 	texture = set_texture(data);
+	// printf("texture == %d\n", texture);
 	// printf("texture == %d\n", texture);
 	while (y < data->draw_end)
 	{
