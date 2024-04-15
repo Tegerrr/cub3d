@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 18:42:20 by sbalasho          #+#    #+#             */
-/*   Updated: 2024/04/15 14:06:52 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 18:22:22 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	check_if_map_has_right_chars(char **map, t_data *data)
 				data->player->x = j;
 				data->player->y = i;
 
-				data->pos_x = (double)j;
-				data->pos_y = (double)i;
+				data->pos_x = (double)j + 0.5;
+				data->pos_y = (double)i + 0.5;
 				data->player->orientation = map[i][j];
 
 				// data->dir_x = 0;

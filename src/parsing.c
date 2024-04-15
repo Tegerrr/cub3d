@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:30 by mac               #+#    #+#             */
-/*   Updated: 2024/04/15 14:13:11 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 17:54:43 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,13 @@ void	put_2d_map_into_double_arr(int map_fd, t_data *data)
 
 void	orient_W(t_data *data)
 {
-	data->dir_x = -1;
-	data->dir_y = 0;
-	data->plane_x = 0;
-	data->plane_y = -0.66;
+	if (data->player->orientation == 'W')
+	{
+		data->dir_x = -1;
+		data->dir_y = 0;
+		data->plane_x = 0;
+		data->plane_y = -0.66;
+	}
 }
 
 void	orient(t_data *data)
@@ -91,14 +94,15 @@ void	orient(t_data *data)
 	{
 		data->dir_x = 0;
 		data->dir_y = -1;
-		data->plane_x = -0.66;
+		data->plane_x = 0.66;
 		data->plane_y = 0;
 	}
 	if (data->player->orientation == 'S')
 	{
 		data->dir_x = 0;
 		data->dir_y = 1;
-		data->plane_x = 0.66;
+		
+		data->plane_x = -0.66;
 		data->plane_y = 0;
 	}
 	if (data->player->orientation == 'E')

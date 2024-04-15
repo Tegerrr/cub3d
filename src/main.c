@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:23 by mac               #+#    #+#             */
-/*   Updated: 2024/04/07 16:51:37 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/15 18:53:50 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	parsing(argv[1], data);
-	// ft_mlx_init(data);
-	// printf("hello\n");
 	game(data);
 	return 0;
 }
