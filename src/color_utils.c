@@ -50,6 +50,22 @@ int is_color_valid(t_color c)
 	return(1);
 }
 
+void has_two_commas(char *line)
+{
+	int i;
+	int commas;
+
+	i = -1;
+	commas = 0;
+	while (line && line[++i])
+	{
+		if (line[i] == ',')
+			commas++;
+	}
+	if (commas != 2)
+		message_error_exit("color is misconfigured: must have two commas\n");
+}
+
 int	check_color(char *line, int *t_counter, int found_code, t_data *data)
 {
 	t_color	color;
@@ -62,6 +78,7 @@ int	check_color(char *line, int *t_counter, int found_code, t_data *data)
 	line++; // skip the element identifier ("C" or "F")
 	while (line && line[0] && ft_strchr(WHITE_CHARS, line[0]))
 		line++;
+	has_two_commas(line);
 	color_lines = ft_split(line, ',');
 	if (!color_lines)
 		message_error_exit("split failed!");
