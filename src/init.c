@@ -39,6 +39,6 @@ void	inits(t_data *data)
 		data->walls_textures[i] = malloc(sizeof(t_img));
 		i++;
 	}
-	data->move_speed = 0.1;
+	data->move_speed = 0.3;
 	texture_file_to_img(data);
 }

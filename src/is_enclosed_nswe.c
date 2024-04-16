@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 #include "cub3d.h"
 
-
 int	is_enclosed_north(int x, int y, char **map)
 {
 	int	i;

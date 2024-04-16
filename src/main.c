@@ -15,8 +15,9 @@
 int	main(int argc, char **argv)
 {
 	t_data	*data;
-	int i = 0;
-	
+	int		i;
+
+	i = 0;
 	if (argc != 2)
 		message_error_exit("Error: wrong number of arguments!\n");
 	data = malloc(sizeof(t_data));
@@ -26,7 +27,6 @@ int	main(int argc, char **argv)
 	data->texture = malloc(sizeof(t_texture));
 	data->map->floor = malloc(sizeof(t_color));
 	data->map->ceiling = malloc(sizeof(t_color));
-
 	while (data->walls_textures[i])
 	{
 		data->walls_textures[i] = malloc(sizeof(t_img));
@@ -34,5 +34,5 @@ int	main(int argc, char **argv)
 	}
 	parsing(argv[1], data);
 	game(data);
-	return 0;
+	return (0);
 }
