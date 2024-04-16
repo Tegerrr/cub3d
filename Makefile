@@ -4,7 +4,7 @@ OBJDIR = obj
 
 RM = rm -rf
 CC = cc
-MLX_DIR = ./mlx
+MLdir_x = ./mlx
 SRCS = $(addprefix $(SRCDIR)/, check_map.c	drawing.c	init.c	parsing.c	utils.c\
 								color_utils.c	error.c	is_enclosed_nswe.c	raycast.c	utils_p.c\
 								game.c	main.c	texture_color_checks.c floor_ceiling.c)
@@ -15,12 +15,12 @@ LIBFTA = $(LIBFT)/libft.a
 # LIBGNL = ./get_next_line
 # LIBGNLA = $(LIBGNL)/gnl.a
 LIBS = -L$(LIBFT) -lft #-L$(LIBGNL) #-lgnl
-MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -L$(MLX_DIR)
+MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -L$(MLdir_x)
 HEADER = $(SRCDIR)/cub3d.h
 
-MLX		=	$(MLX_DIR)libmlx.a
-MLX_DIR =	./mlx/
-MLX_HEADERS = $(MLX_DIR)
+MLX		=	$(MLdir_x)libmlx.a
+MLdir_x =	./mlx/
+MLX_HEADERS = $(MLdir_x)
 
 all: $(NAME)
 
@@ -32,7 +32,7 @@ $(NAME): $(OBJS) $(LIBFTA) $(MLX) #$(LIBGNLA)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(MLXFLAGS) -o $(NAME)
 
 $(MLX):
-	$(MAKE) -sC $(MLX_DIR)
+	$(MAKE) -sC $(MLdir_x)
 
 $(LIBFTA):
 	@$(MAKE) -C $(LIBFT)
@@ -43,7 +43,7 @@ $(LIBFTA):
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(OBJDIR)
-	@$(MAKE) -sC $(MLX_DIR) clean
+	@$(MAKE) -sC $(MLdir_x) clean
 	@$(MAKE) -C $(LIBFT) clean
 #	@$(MAKE) -C $(LIBGNL) clean
 

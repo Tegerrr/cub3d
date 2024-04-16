@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:12:16 by mac               #+#    #+#             */
-/*   Updated: 2024/04/15 18:55:02 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/16 14:34:06 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ typedef struct s_data
 	double		dir_y;
 	double		plane_x;
 	double		plane_y;
-	double		ray_dir_x;
-	double		ray_dir_y;
+	double		radir_y_x;
+	double		radir_y_y;
 	double		camera_x;
 	double		camera_y;
 	int			map_x;
@@ -121,7 +121,7 @@ typedef struct s_data
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
-	double		tex_pos;
+	double		tepos_x;
 	int			tex_y;
 	double		time;		// time of current frame
 	double		old_time;	// time of previous frame

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:36 by mac               #+#    #+#             */
-/*   Updated: 2024/04/15 18:44:02 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/16 14:34:06 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,28 @@ void	position_and_direction(t_data *data, int x)
 	data->hit = 0;
 	// calculate ray position and direction
 	data->camera_x = 2 * x / (double)WIDTH - 1; // x-coordinate in camera space
-	data->ray_dir_x = data->dir_x + data->plane_x * data->camera_x; // direction of ray
-	data->ray_dir_y = data->dir_y + data->plane_y * data->camera_x; // direction of ray
-	data->delta_dist_x = sqrt(1 + (data->ray_dir_y * data->ray_dir_y) / (data->ray_dir_x * data->ray_dir_x)); // length of ray from one x or y-side to next x or y-side
-	data->delta_dist_y = sqrt(1 + (data->ray_dir_x * data->ray_dir_x) / (data->ray_dir_y * data->ray_dir_y)); // length of ray from one x or y-side to next x or y-side
+	data->radir_y_x = data->dir_x + data->plane_x * data->camera_x; // direction of ray
+	data->radir_y_y = data->dir_y + data->plane_y * data->camera_x; // direction of ray
+	data->delta_dist_x = sqrt(1 + (data->radir_y_y * data->radir_y_y) / (data->radir_y_x * data->radir_y_x)); // length of ray from one x or y-side to next x or y-side
+	data->delta_dist_y = sqrt(1 + (data->radir_y_x * data->radir_y_x) / (data->radir_y_y * data->radir_y_y)); // length of ray from one x or y-side to next x or y-side
 	// which box of the map we're in
 	data->map_x = (int)data->pos_x;
 	data->map_y = (int)data->pos_y;
 	//length of ray from one x or y-side to next x or y-side
-	if (data->ray_dir_x == 0)
+	if (data->radir_y_x == 0)
 		data->delta_dist_x = 1e30;
 	else
-		data->delta_dist_x = fabs(1 / data->ray_dir_x);
-	if (data->ray_dir_y == 0)
+		data->delta_dist_x = fabs(1 / data->radir_y_x);
+	if (data->radir_y_y == 0)
 		data->delta_dist_y = 1e30;
 	else
-		data->delta_dist_y = fabs(1 / data->ray_dir_y);
+		data->delta_dist_y = fabs(1 / data->radir_y_y);
 }
 
 void	step_and_side_dist(t_data *data)
 {
 	// calculate step and initial sideDist
-	if(data->ray_dir_x < 0)
+	if(data->radir_y_x < 0)
 	{
 		data->step_x = -1;
 		data->side_dist_x = (data->pos_x - data->map_x) * data->delta_dist_x;
@@ -48,7 +48,7 @@ void	step_and_side_dist(t_data *data)
 		data->step_x = 1;
 		data->side_dist_x = (data->map_x + 1.0 - data->pos_x) * data->delta_dist_x;
 	}
-	if (data->ray_dir_y < 0)
+	if (data->radir_y_y < 0)
 	{
 		data->step_y = -1;
 		data->side_dist_y = (data->pos_y - data->map_y) * data->delta_dist_y;

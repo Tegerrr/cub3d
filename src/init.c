@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:33 by mac               #+#    #+#             */
-/*   Updated: 2024/04/15 18:54:46 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/16 14:35:23 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	inits(t_data *data)
 		data->walls_textures[i] = malloc(sizeof(t_img));
 		i++;
 	}
+	data->move_speed = 0.1;
 	texture_file_to_img(data);
 }
