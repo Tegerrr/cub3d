@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 #include "cub3d.h"
 
-
-int check_if_elem_is_doubled(int texture_counter, int found_code)
+int	check_if_elem_is_doubled(int texture_counter, int found_code)
 {
 	int	power_of_two;
-	int mask;
+	int	mask;
 
 	power_of_two = 0;
 	while (found_code > 1)
@@ -31,7 +30,6 @@ int check_if_elem_is_doubled(int texture_counter, int found_code)
 	}
 	else
 		return (0);
-
 }
 
 char	*check_t_path(char *line, int *texture_counter, int found_code)
@@ -70,7 +68,6 @@ int	find_a_texture(char *line, t_data *data, int *t_counter)
 		return (1);
 	return (0);
 }
-
 
 void	parse_textures_and_colors(int map_fd, t_data *data)
 {

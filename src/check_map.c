@@ -32,24 +32,28 @@ void	check_if_map_has_right_chars(char **map, t_data *data)
 				if (data->player->found_flag == 1)
 					message_error_exit("map has more than 1 player position\n");
 				data->player->found_flag = 1;
-				data->player->x = j;
-				data->player->y = i;
-
-				data->pos_x = (double)j + 0.5;
-				data->pos_y = (double)i + 0.5;
-				data->player->orientation = map[i][j];
-
-				// data->dir_x = 0;
-				// data->dir_y = 1;
-				// data->plane_x = 0.66;
-				// data->plane_y = 0;
-				// orientation(data->player->orientation);	
+				record_player_position(data, i, j, map);
 			}
 		}
 	}
 	if (data->player->found_flag == 0)
 		message_error_exit("map has no player\n");
 }
+
+void	record_player_position(t_data *data, int i, int j, char **map)
+{
+	data->player->x = j;
+	data->player->y = i;
+	data->pos_x = (double)j + 0.5;
+	data->pos_y = (double)i + 0.5;
+	data->player->orientation = map[i][j];
+}
+
+				// data->dir_x = 0;
+				// data->dir_y = 1;
+				// data->plane_x = 0.66;
+				// data->plane_y = 0;
+				// orientation(data->player->orientation);	
 
 void	check_map_walls(char **map)
 {

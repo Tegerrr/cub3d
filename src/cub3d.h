@@ -36,6 +36,7 @@
 # define WHITE_CHARS "\t\n\x0b\x0c\r "
 # define ORIENTATION_CHARS "NSEW"
 # define VALID_MAP_CHARS " 10NSEW"
+# define NLERR "nl the middle of map OR non-nl chars bwn 6 elems and map\n"
 
 
 typedef struct s_mlx
@@ -130,7 +131,7 @@ typedef struct s_data
 }	t_data;
 
 // init
-void 	ft_mlx_init(t_data *data);
+void	ft_mlx_init(t_data *data);
 void	inits(t_data *data);
 
 // raycast
@@ -138,6 +139,8 @@ void	raycasting(t_data *data);
 
 // parsing
 int		parsing(char *map_path, t_data *data);
+void	orient(t_data *data);
+void	orient_w(t_data *data);
 void	message_error_exit(char *message);
 int		is_file_extension_right(char *map_path, char *extension);
 void	open_map_file(char *map_path, int *fd);
@@ -154,10 +157,13 @@ int		has_only_white_space(char *str);
 int		check_if_elem_is_doubled(int texture_counter, int found_code);
 int		trim_double_char_arr(char ***ptr_to_double_ch_arr, char *set);
 int		check_color(char *line, int *t_counter, int found_code, t_data *data);
+void	record_color(t_data *data, t_color *color, int found_code);
 int		is_color_valid(t_color c);
+void	has_two_commas(char *line);
 int		check_color_lines(char **color_lines);
 void	print_texture_color_data(t_data *data);
 void	check_if_map_has_right_chars(char **map, t_data *data);
+void	record_player_position(t_data *data, int i, int j, char **map);
 void	check_map_walls(char **map);
 void	check_if_enclosed_by_walls(int x, int y, char **map);
 int		is_enclosed_north(int x, int y, char **map);
