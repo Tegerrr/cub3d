@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 #include "cub3d.h"
 
-int check_color_lines(char **color_lines)
+int	check_color_lines(char **color_lines)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	j = -1;
@@ -31,55 +31,79 @@ int check_color_lines(char **color_lines)
 		while (color_lines[i][j])
 		{
 			if (!ft_isdigit(color_lines[i][j]))
-				message_error_exit("color is misconfigured: has a non-digit char\n");
+				message_error_exit("color has a non-digit char\n");
 			j++;
 		}
 	}
 	if (i <= 2)
 		message_error_exit("color is misconfigured: less than 3 numbers\n");
-	return(0);
+	return (0);
 }
 
-int is_color_valid(t_color c)
+int	is_color_valid(t_color c)
 {
 	if (c.r < 0 || c.r > 255 || c.g < 0 || c.g > 255 || c.b < 0 || c.b > 255)
 	{
 		message_error_exit("color components must be in range 0 - 255\n");
-		return(0);
+		return (0);
 	}
-	return(1);
+	return (1);
+}
+
+void	has_two_commas(char *line)
+{
+	int	i;
+	int	commas;
+
+	i = -1;
+	commas = 0;
+	while (line && line[++i])
+	{
+		if (line[i] == ',')
+			commas++;
+	}
+	if (commas != 2)
+		message_error_exit("color is misconfigured: must have two commas\n");
 }
 
 int	check_color(char *line, int *t_counter, int found_code, t_data *data)
 {
 	t_color	color;
-	t_color	*c_or_f;
 	char	**color_lines;
 
 	check_if_elem_is_doubled(*t_counter, found_code);
 	*t_counter += found_code;
-	c_or_f = NULL;
-	line++; // skip the element identifier ("C" or "F")
+	line++;
 	while (line && line[0] && ft_strchr(WHITE_CHARS, line[0]))
 		line++;
+	has_two_commas(line);
 	color_lines = ft_split(line, ',');
 	if (!color_lines)
 		message_error_exit("split failed!");
-	trim_double_char_arr(&color_lines, WHITE_CHARS); // trim each line using whate_space_set, free old array, retrun new array 
-	check_color_lines(color_lines); // check that there are exactly three lines and that they are all numeric
+	trim_double_char_arr(&color_lines, WHITE_CHARS);
+	check_color_lines(color_lines);
 	color.r = ft_atoi(color_lines[0]);
 	color.g = ft_atoi(color_lines[1]);
 	color.b = ft_atoi(color_lines[2]);
-	is_color_valid(color); // check that all three ints are between 0 and 255
-	if (found_code == FOUND_F)
-		c_or_f = data->map->floor;
-	else if (found_code == FOUND_C)
-		c_or_f = data->map->ceiling;
-	else
-		message_error_exit("actually this never happens\n");
-	c_or_f->r = color.r;
-	c_or_f->g = color.g;
-	c_or_f->b = color.b;
+	is_color_valid(color);
+	record_color(data, &color, found_code);
 	return (0);
 }
 
+void	record_color(t_data *data, t_color *color, int found_code)
+{
+	if (found_code == FOUND_F)
+	{
+		data->map->floor->r = color->r;
+		data->map->floor->g = color->g;
+		data->map->floor->b = color->b;
+	}
+	else if (found_code == FOUND_C)
+	{
+		data->map->ceiling->r = color->r;
+		data->map->ceiling->g = color->g;
+		data->map->ceiling->b = color->b;
+	}
+	else
+		message_error_exit("wrong code for color (never happens)\n");
+}
