@@ -7,7 +7,7 @@ CC = cc
 MLdir_x = ./mlx
 SRCS = $(addprefix $(SRCDIR)/, check_map.c	drawing.c	init.c	parsing.c	utils.c\
 								color_utils.c	error.c	is_enclosed_nswe.c	raycast.c	utils_p.c\
-								game.c	main.c	texture_color_checks.c floor_ceiling.c orient.c)
+								game.c	main.c	texture_color_checks.c floor_ceiling.c orient.c	move_rotate.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFT = ./libft

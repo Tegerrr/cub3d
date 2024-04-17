@@ -6,11 +6,50 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 14:56:12 by mac               #+#    #+#             */
-/*   Updated: 2024/04/06 22:01:11 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/18 01:32:40 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	define_press(int keycode, t_data *data)
+{
+	if (keycode == 13)
+		data->w = 1;
+	if (keycode == 1)
+		data->s = 1;
+	if (keycode == 0)
+		data->a = 1;
+	if (keycode == 2)
+		data->d = 1;
+	if (keycode == 123)
+		data->left = 1;
+	if (keycode == 124)
+		data->right = 1;
+	if (keycode == 53)
+	{
+		mlx_destroy_window(data->mlx->mlx, data->mlx->win);
+		exit(0);
+	}
+	return (0);
+}
+
+int	define_release(int keycode, t_data *data)
+{
+	if (keycode == 13)
+		data->w = 0;
+	if (keycode == 1)
+		data->s = 0;
+	if (keycode == 0)
+		data->a = 0;
+	if (keycode == 2)
+		data->d = 0;
+	if (keycode == 123)
+		data->left = 0;
+	if (keycode == 124)
+		data->right = 0;
+	return (0);
+}
 
 int	close_game(void)
 {
@@ -36,18 +75,4 @@ int	trim_double_char_arr(char ***ptr_to_double_ch_arr, char *set)
 		(*ptr_to_double_ch_arr)[i] = tmp;
 	}
 	return (0);
-}
-
-void	print_texture_color_data(t_data *data)
-{
-	printf(".......\n");
-	printf("NO: %s\n", data->texture->no);
-	printf("SO: %s\n", data->texture->so);
-	printf("EA: %s\n", data->texture->ea);
-	printf("WE: %s\n", data->texture->we);
-	printf("F: %i, %i, %i\n", data->map->floor->r,
-		data->map->floor->g, data->map->floor->b);
-	printf("C: %i, %i, %i\n", data->map->ceiling->r,
-		data->map->ceiling->g, data->map->ceiling->b);
-	printf(".......\n");
 }

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:11:30 by mac               #+#    #+#             */
-/*   Updated: 2024/04/15 17:54:43 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/18 01:32:27 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,9 @@ int	parsing(char *map_path, t_data *data)
 	is_file_extension_right(map_path, ".cub");
 	open_map_file(map_path, &fd);
 	parse_textures_and_colors(fd, data);
-	print_texture_color_data(data);
 	put_2d_map_into_double_arr(fd, data);
 	check_if_map_has_right_chars(data->map->map, data);
 	check_map_walls(data->map->map);
 	orient(data);
 	return (0);
 }
-
-//	printf("player info: x: %i, y: %i, orientation: %c\n",
-//		data->player->x, data->player->y, data->player->orientation);
-//	printf("Your map is OK!\n");
-//	print_double_char_arr(data->map->map);
