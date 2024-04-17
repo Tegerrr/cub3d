@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:12:16 by mac               #+#    #+#             */
-/*   Updated: 2024/04/16 14:34:06 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/17 23:46:56 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,14 @@ typedef struct s_data
 	double		old_time;	// time of previous frame
 	double		move_speed;
 	double		rot_speed;
+	double		old_dir_x;
+	double 		old_plane_x;
+	int			w;
+	int			a;
+	int			s;
+	int			d;
+	int			left;
+	int			right;
 }	t_data;
 
 // init
@@ -164,7 +172,6 @@ int		is_enclosed_north(int x, int y, char **map);
 int		is_enclosed_south(int x, int y, char **map);
 int		is_enclosed_east(int x, int y, char **map);
 int		is_enclosed_west(int x, int y, char **map);
-
 
 // game
 void	game(t_data *data);
