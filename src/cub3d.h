@@ -185,5 +185,8 @@ void			calculate_wall_height(t_data *data);
 void			hit_a_wall(t_data *data);
 void			step_and_side_dist(t_data *data);
 void			position_and_direction(t_data *data, int x);
+int				free_double_char_arr(char **arr);
+void			free_all_data(t_data *data);
+void			free_walls_textures(t_data *data);
 
 #endif

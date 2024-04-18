@@ -36,3 +36,39 @@ void	draw_floor_ceiling(t_data *data)
 	while (i-- > 0)
 		*dest++ = floor_rgb;
 }
+
+void	free_all_data(t_data *data)
+{
+	free(data->map->ceiling);
+	free(data->map->floor);
+	free_double_char_arr(data->map->map);
+	free(data->map);
+	free(data->player);
+	free(data->texture->no);
+	free(data->texture->so);
+	free(data->texture->we);
+	free(data->texture->ea);
+	free(data->texture);
+	free(data->mlx->mlx);
+	free(data->mlx->win);
+	free(data->mlx);
+	free_walls_textures(data);
+	free(data->image->img);
+	free(data->image->img_addr);
+	free(data->image);
+	free(data);
+}
+
+void	free_walls_textures(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->walls_textures[i])
+	{
+		free(data->walls_textures[i]->img);
+		free(data->walls_textures[i]->img_addr);
+		free(data->walls_textures[i]);
+		i++;
+	}
+}
