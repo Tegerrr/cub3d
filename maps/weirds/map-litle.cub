@@ -1,10 +1,9 @@
-NO images/wall.xpm
-SO images/bricks.xpm
-WE images/gold.xpm
-EA images/wood.xpm
-
-F 220,111,119
-C 225,111,200
+WE	./textures/bluestone.xpm
+NO	./textures/redbrick.xpm
+F   5,   40,     5
+EA	./textures/purplestone.xpm
+SO	./textures/greystone.xpm
+C   10, 120 , 255
 
 
 
