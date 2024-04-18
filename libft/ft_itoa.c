@@ -49,7 +49,7 @@ static int	ft_power(int nb, int power)
 			i--;
 		}
 		return (res);
-	}	
+	}
 }
 
 static char	*ft_ar_fill(char *res_ptr, int i, int n, int dig_count)

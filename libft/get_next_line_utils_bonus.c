@@ -9,7 +9,7 @@
 /*   Updated: 2023/03/09 13:06:48 by sbalasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_new_substr(char *s, unsigned int start, size_t len)
 {
@@ -72,7 +72,7 @@ size_t	ft_new_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	if (dstsize != 0)
-	{	
+	{
 		while (src[i] != '\0' && i < (dstsize - 1))
 		{
 			dst[i] = src[i];

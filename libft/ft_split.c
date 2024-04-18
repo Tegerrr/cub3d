@@ -9,7 +9,7 @@
 /*   Updated: 2023/02/03 18:12:26 by sbalasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 
 static void	free_res_ptr(char **res_ptr, int i)
 {
@@ -88,7 +88,7 @@ static char	**ft_filler(char **res_ptr, int i, const char *s, char c)
 }
 
 char	**ft_split(char const *s, char c)
-{	
+{
 	char	**res_ptr;
 
 	if (!s || s[0] == '\0')
