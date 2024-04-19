@@ -29,6 +29,8 @@ int	define_press(int keycode, t_data *data)
 	if (keycode == 53)
 	{
 		mlx_destroy_window(data->mlx->mlx, data->mlx->win);
+		free_all_data(data);
+		system("leaks cub3d");
 		exit(0);
 	}
 	return (0);

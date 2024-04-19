@@ -25,21 +25,27 @@ int	is_file_extension_right(char *map_path, char *extension)
 	}
 	return (0);
 }
-/*
-int	check_if_empty(char **map)
+
+void check_if_map_too_big(char **map)
 {
 	int	i;
+	int	j;
 
-	i = -1;
+	i = 0;
 	if (!map)
-		message_error_exit("map is empty!\n");
-	while (map[++i])
-		if (!has_not_only_white_space(map[i]))
-			return (0);
-	message_error_exit("map is empty!\n");
-	return (1);
+		message_error_exit("map array ptr is null!\n");
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+			j++;
+		if (j > MAX_MAP_WIDTH)
+			message_error_exit("map is too big!\n");
+		i++;
+	}
+	if (i > MAX_MAP_HEIGHT)
+		message_error_exit("map is too big!\n");
 }
-*/
 
 void	open_map_file(char *map_path, int *fd)
 {
@@ -80,6 +86,7 @@ int	parsing(char *map_path, t_data *data)
 	open_map_file(map_path, &fd);
 	parse_textures_and_colors(fd, data);
 	put_2d_map_into_double_arr(fd, data);
+	check_if_map_too_big(data->map->map);
 	check_if_map_has_right_chars(data->map->map, data);
 	check_map_walls(data->map->map);
 	orient(data);

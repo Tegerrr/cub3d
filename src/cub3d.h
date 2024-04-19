@@ -34,6 +34,8 @@
 # define ORIENTATION_CHARS "NSEW"
 # define VALID_MAP_CHARS " 10NSEW"
 # define NLERR "nl the middle of map OR non-nl chars bwn 6 elems and map\n"
+# define MAX_MAP_WIDTH 200
+# define MAX_MAP_HEIGHT 100
 
 typedef struct s_mlx
 {
@@ -148,6 +150,7 @@ void			put_2d_map_into_double_arr(int map_fd, t_data *data);
 void			print_double_char_arr(char **map);
 int				no_double_new_line(char *str);
 int				check_if_empty(char *big_str);
+void 			check_if_map_too_big(char **map);
 int				has_not_only_white_space(char *str);
 char			*check_t_path(char *line, int *texture_counter, int found_code);
 int				find_a_texture(char *line, t_data *data, int *texture_counter);

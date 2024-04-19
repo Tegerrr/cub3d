@@ -34,6 +34,6 @@ int	main(int argc, char **argv)
 	}
 	parsing(argv[1], data);
 	game(data);
-	free_all_data(data);
+	// free_all_data(data);
 	return (0);
 }

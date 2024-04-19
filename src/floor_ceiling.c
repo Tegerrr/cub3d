@@ -49,13 +49,9 @@ void	free_all_data(t_data *data)
 	free(data->texture->we);
 	free(data->texture->ea);
 	free(data->texture);
-	free(data->mlx->mlx);
-	free(data->mlx->win);
 	free(data->mlx);
-	free_walls_textures(data);
-	free(data->image->img);
-	free(data->image->img_addr);
 	free(data->image);
+	free_walls_textures(data);
 	free(data);
 }
 
@@ -64,7 +60,7 @@ void	free_walls_textures(t_data *data)
 	int	i;
 
 	i = 0;
-	while (data->walls_textures[i])
+	while (data->walls_textures[i] && i < 4)
 	{
 		free(data->walls_textures[i]->img);
 		free(data->walls_textures[i]->img_addr);
