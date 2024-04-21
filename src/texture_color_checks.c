@@ -83,7 +83,9 @@ void	parse_textures_and_colors(int map_fd, t_data *data)
 		tmp = get_next_line(map_fd);
 		if (!tmp)
 			break ;
-		if (!has_only_white_space(tmp))
+		if (has_only_white_space(tmp))
+			free(tmp);
+		else
 		{
 			tmp2 = ft_strtrim(tmp, WHITE_CHARS);
 			if (find_a_texture(tmp2, data, &texture_counter) == 1)
