@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:12:16 by mac               #+#    #+#             */
-/*   Updated: 2024/04/18 01:32:47 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/22 17:40:43 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ void			game(t_data *data);
 void			texture_put(t_data *data, int x);
 void			draw_floor_ceiling(t_data *data);
 unsigned long	set_up_color(int r, int g, int b);
-int				close_game(void);
+int				close_game(t_data *data);
 int				define_press(int keycode, t_data *data);
 int				define_release(int keycode, t_data *data);
 void			move_forward_back(t_data *data);

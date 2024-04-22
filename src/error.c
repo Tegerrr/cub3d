@@ -6,14 +6,16 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 14:50:29 by mac               #+#    #+#             */
-/*   Updated: 2024/03/08 14:51:48 by mac              ###   ########.fr       */
+/*   Updated: 2024/04/22 17:46:37 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "cub3d.h"
 
 void	message_error_exit(char *message)
 {
 	ft_putstr_fd("Error: ", 2);
 	ft_putstr_fd(message, 2);
+	system("leaks cub3d");
 	exit(0);
 }
