@@ -26,7 +26,7 @@ int	is_file_extension_right(char *map_path, char *extension)
 	return (0);
 }
 
-void check_if_map_too_big(char **map)
+void	check_if_map_too_big(char **map)
 {
 	int	i;
 	int	j;

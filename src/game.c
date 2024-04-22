@@ -47,15 +47,9 @@ int	updating_img(t_data *data)
 			&data->image->bits_per_pixel,
 			&data->image->line_length, &data->image->endian);
 	if (data->image->img == NULL)
-	{
-		printf("Error img\n");
-		exit(0);
-	}
+		message_error_exit("mlx_new_image failed\n");
 	if (data->image->img_addr == NULL)
-	{
-		printf("Error img_addr\n");
-		exit(0);
-	}
+		message_error_exit("mlx_get_data_addr failed\n");
 	draw_floor_ceiling(data);
 	raycasting(data);
 	mlx_hook(data->mlx->win, 2, 1L << 2, define_press, data);
@@ -64,7 +58,6 @@ int	updating_img(t_data *data)
 	mlx_put_image_to_window(data->mlx->mlx,
 		data->mlx->win, data->image->img, 0, 0);
 	mlx_destroy_image(data->mlx->mlx, data->image->img);
-	// free(data->image);
 	return (0);
 }
 

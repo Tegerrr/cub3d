@@ -53,7 +53,6 @@ int	define_release(int keycode, t_data *data)
 
 int	close_game(void)
 {
-	system("leaks cub3d");
 	exit(0);
 	return (0);
 }
