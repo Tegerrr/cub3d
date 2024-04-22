@@ -87,6 +87,7 @@ int	check_color(char *line, int *t_counter, int found_code, t_data *data)
 	color.b = ft_atoi(color_lines[2]);
 	is_color_valid(color);
 	record_color(data, &color, found_code);
+	free_double_char_arr(color_lines);
 	return (0);
 }
 
