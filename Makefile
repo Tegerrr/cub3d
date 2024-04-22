@@ -9,12 +9,10 @@ SRCS = $(addprefix $(SRCDIR)/, check_map.c	drawing.c	init.c	parsing.c	utils.c\
 								color_utils.c	error.c	is_enclosed_nswe.c	raycast.c	utils_p.c\
 								game.c	main.c	texture_color_checks.c floor_ceiling.c orient.c	move_rotate.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft
 LIBFTA = $(LIBFT)/libft.a
-# LIBGNL = ./get_next_line
-# LIBGNLA = $(LIBGNL)/gnl.a
-LIBS = -L$(LIBFT) -lft #-L$(LIBGNL) #-lgnl
+LIBS = -L$(LIBFT) -lft
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit -L$(MLdir_x)
 HEADER = $(SRCDIR)/cub3d.h
 
@@ -28,7 +26,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
-$(NAME): $(OBJS) $(LIBFTA) $(MLX) #$(LIBGNLA)
+$(NAME): $(OBJS) $(LIBFTA) $(MLX)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(MLXFLAGS) -o $(NAME)
 
 $(MLX):
@@ -37,21 +35,16 @@ $(MLX):
 $(LIBFTA):
 	@$(MAKE) -C $(LIBFT)
 
-# $(LIBGNLA):
-# 	@$(MAKE) -C $(LIBGNL)
-
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(OBJDIR)
 	@$(MAKE) -sC $(MLdir_x) clean
 	@$(MAKE) -C $(LIBFT) clean
-#	@$(MAKE) -C $(LIBGNL) clean
 
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(MLX)
 	@$(MAKE) -C $(LIBFT) fclean
-#	@$(MAKE) -C $(LIBGNL) fclean
 
 re: fclean all
 
