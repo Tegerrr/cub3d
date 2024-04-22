@@ -39,7 +39,9 @@ int	move(t_data *data)
 
 int	updating_img(t_data *data)
 {
-	data->image = malloc(sizeof(t_img));
+	t_img	local_img;
+
+	data->image = &local_img;
 	data->image->img = mlx_new_image(data->mlx->mlx, WIDTH, HEIGHT);
 	data->image->img_addr = mlx_get_data_addr(data->image->img,
 			&data->image->bits_per_pixel,
@@ -62,7 +64,7 @@ int	updating_img(t_data *data)
 	mlx_put_image_to_window(data->mlx->mlx,
 		data->mlx->win, data->image->img, 0, 0);
 	mlx_destroy_image(data->mlx->mlx, data->image->img);
-	free(data->image);
+	// free(data->image);
 	return (0);
 }
 

@@ -61,6 +61,8 @@ void	put_2d_map_into_double_arr(int map_fd, t_data *data)
 	char	*tmp2;
 
 	big_str = ft_calloc(1, sizeof(char));
+	if (!big_str)
+		message_error_exit("malloc failed in ft_calloc!\n");
 	while (1)
 	{
 		tmp = get_next_line(map_fd);

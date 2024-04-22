@@ -50,7 +50,7 @@ void	free_all_data(t_data *data)
 	free(data->texture->ea);
 	free(data->texture);
 	free(data->mlx);
-	free(data->image);
+	// free(data->image);
 	free_walls_textures(data);
 	free(data);
 }
