@@ -176,7 +176,7 @@ void			game(t_data *data);
 void			texture_put(t_data *data, int x);
 void			draw_floor_ceiling(t_data *data);
 unsigned long	set_up_color(int r, int g, int b);
-int				close_game(t_data *data);
+int				close_game(void);
 int				define_press(int keycode, t_data *data);
 int				define_release(int keycode, t_data *data);
 void			move_forward_back(t_data *data);

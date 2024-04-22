@@ -29,7 +29,7 @@ int	define_press(int keycode, t_data *data)
 	if (keycode == 53)
 	{
 		mlx_destroy_window(data->mlx->mlx, data->mlx->win);
-		close_game(data);
+		close_game();
 	}
 	return (0);
 }
@@ -51,9 +51,8 @@ int	define_release(int keycode, t_data *data)
 	return (0);
 }
 
-int	close_game(t_data *data)
+int	close_game(void)
 {
-	free_all_data(data);
 	system("leaks cub3d");
 	exit(0);
 	return (0);

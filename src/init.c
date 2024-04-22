@@ -48,9 +48,9 @@ void	inits(t_data *data)
 		data->walls_textures[i] = malloc(sizeof(t_img));
 		i++;
 	}
-	data->move_speed = 0.05;
+	data->move_speed = 0.03;
 	data->old_dir_x = 0;
-	data->rot_speed = 0.02;
+	data->rot_speed = 0.03;
 	data->w = 0;
 	data->s = 0;
 	data->a = 0;

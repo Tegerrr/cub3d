@@ -74,6 +74,6 @@ void	game(t_data *data)
 	data->mlx->win = mlx_new_window(data->mlx->mlx, WIDTH, HEIGHT, "cub3d");
 	inits(data);
 	mlx_loop_hook(data->mlx->mlx, &updating_img, data);
-	mlx_hook(data->mlx->win, 17, 1L << 2, close_game, data);
+	mlx_hook(data->mlx->win, 17, 1L << 2, close_game, NULL);
 	mlx_loop(data->mlx->mlx);
 }

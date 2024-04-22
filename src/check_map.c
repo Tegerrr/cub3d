@@ -47,13 +47,7 @@ void	record_player_position(t_data *data, int i, int j, char **map)
 	data->pos_x = (double)j + 0.5;
 	data->pos_y = (double)i + 0.5;
 	data->player->orientation = map[i][j];
-}
-
-				// data->dir_x = 0;
-				// data->dir_y = 1;
-				// data->plane_x = 0.66;
-				// data->plane_y = 0;
-				// orientation(data->player->orientation);	
+}	
 
 void	check_map_walls(char **map)
 {
